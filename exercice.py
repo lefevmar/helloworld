@@ -77,18 +77,14 @@ def returnIndex(array, var):
 def palindromme(text):
     l = len(text)
     indexFin = l-1
-    pal = False
 
     for i in range(0, l):
-        if(text[i] == text[indexFin]):
-            pal = True
-        else:
+        if(text[i] != text[indexFin]):
             print("Le mot " + text + " n'est pas un palindromme")
             return
         indexFin = indexFin - 1
 
-    if(pal == True):
-        print("Le mot " + text + " est un palindromme")
+    print("Le mot " + text + " est un palindromme")
 
 texte = raw_input("Test du mot : ")
 palindromme(texte)
