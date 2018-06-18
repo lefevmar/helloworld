@@ -4,8 +4,10 @@ def addition(n):
         somme = somme + i
     print(somme)
 
-addition(3)
-addition(8)
+#addition(3)
+#addition(8)
+
+########################################################
 
 def fibo():
     n2 = 0
@@ -19,7 +21,9 @@ def fibo():
 
     print(suite)
 
-fibo()
+#fibo()
+
+########################################################
 
 def testTableau(t, n):
     if(n in t):
@@ -28,5 +32,62 @@ def testTableau(t, n):
         print("L'entier " + str(n) + " ne se trouve pas dans le tableau")
 
 tableau = [3, 5, 0, 4]
-testTableau(tableau, 5)
-testTableau(tableau, 6)
+#testTableau(tableau, 5)
+#testTableau(tableau, 6)
+
+#########################################################
+
+def inArray(table, var):
+    for i in table:
+        if(i == var):
+            print("L'entier " + str(var) + " se trouve dans le tableau")
+            return
+        print("L'entier " + str(var) + " ne se trouve pas dans le tableau")
+
+#inArray(tableau, 5)
+#inArray(tableau, 6)
+
+##########################################################
+
+def indexTab(tab, var):
+    l = len(tab)
+    for i in range(0, l):
+        if(var == tab[i]):
+            print("L'entier " + str(var) + " se trouve dans le tableau a la position " + str(i))
+
+T = [3,5,0,4,4,7]
+
+#indexTab(T, 4)
+
+###########################################################
+
+def returnIndex(array, var):
+    k = 0
+    indice = list()
+    for i in array:
+        if i == var:
+            indice.append(k)
+        k = k + 1
+    print("L'entier se trouve a la position " + str(indice))
+
+#returnIndex(T, 4)
+
+#######################################################
+
+def palindromme(text):
+    l = len(text)
+    indexFin = l-1
+    pal = False
+    for i in range(0, l):
+        if(text[i] == text[indexFin]):
+            pal = True
+        indexFin = indexFin - 1
+    if(pal == True):
+        print("Le mot " + text + " est un palindromme")
+    if (pal == False):
+        print("Le mot " + text + " n'est pas un palindromme")
+
+
+palindromme("anna")
+palindromme("bidule")
+palindromme("kayak")
