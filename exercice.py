@@ -86,5 +86,33 @@ def palindromme(text):
 
     print("Le mot " + text + " est un palindromme")
 
-texte = raw_input("Test du mot : ")
-palindromme(texte)
+#texte = raw_input("Test du mot : ")
+#palindromme(texte)
+
+#####################################################
+
+def nbPrem(n):
+    for i in range(2,n-1):
+        if n % i == 0:
+            # print(str(n) + " divisible par " + str(i))
+            return False
+    return True
+
+def listNb():
+    for n in range(2,99):
+        if nbPrem(n) == True:
+            print("Nombre premier " + str(n))
+
+#listNb()
+
+#################################################
+
+def comparateur():
+    max = 0;
+    for i in range(0,10):
+        chiffre = raw_input("Entrez un chiffre : ")
+        if(int(chiffre) > int(max)):
+            max = int(chiffre)
+    print("Le plus grand chiffre que vous avez entre est " + str(max))
+
+comparateur()
