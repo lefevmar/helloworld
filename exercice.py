@@ -1,3 +1,5 @@
+import random
+
 def addition(n):
     somme = 0
     for i in range(1, n+1):
@@ -111,8 +113,74 @@ def comparateur():
     max = 0;
     for i in range(0,10):
         chiffre = raw_input("Entrez un chiffre : ")
-        if(int(chiffre) > int(max)):
+        if(int(chiffre) > max):
             max = int(chiffre)
     print("Le plus grand chiffre que vous avez entre est " + str(max))
 
-comparateur()
+#comparateur()
+
+################################################
+
+def montyHall():
+    nbSimul = 1000
+    sommeTestChange = 0
+    sommeTestChangeGagne = 0
+    sommeTestGarde = 0
+    sommeTestGardeGagne = 0
+    pourcentChange = 0
+    pourcentGarde = 0
+    for i in range(0, nbSimul):
+        #portes, pactol et choix1 cree
+        portes = [1, 2, 3]
+        gagne = random.choice(portes)
+        choix1 = random.choice(portes)
+
+        #porte sans cadeau : on remove le pactol (gagne)
+        porteRestanteVide = [1, 2, 3]
+        porteRestanteVide.remove(gagne)
+
+        #si le joueur a choisi la porte gagnante, on supprime le choix1 des portes vides
+        if(gagne != choix1):
+            porteRestanteVide.remove(choix1)
+
+        #on choisit parmi les portes vides la porte a ouvrir et on l'enleve des portes
+        porteOuverte = random.choice(porteRestanteVide)
+        portes.remove(porteOuverte)
+
+        #parmi les portes restantes, on fait un choix2
+        choix2 = random.choice(portes)
+
+        #si le choix2 = choix1, on calcule le pourcentage de gain
+        if(choix2 == choix1):
+            sommeTestGarde = sommeTestGarde + 1
+            if(choix2 == gagne):
+                sommeTestGardeGagne = sommeTestGardeGagne + 1
+
+            pourcentGarde = sommeTestGardeGagne * 100 / sommeTestGarde
+
+        # si le choix2 != choix1, on calcule le pourcentage de gain
+        if (choix2 != choix1):
+            sommeTestChange = sommeTestChange + 1
+            if (choix2 == gagne):
+                sommeTestChangeGagne = sommeTestChangeGagne + 1
+
+            pourcentChange = sommeTestChangeGagne * 100 / sommeTestChange
+
+
+        if(nbSimul < 10):
+            print("Le pactol se trouve ici : " + str(gagne))
+            print("Le choix 1 est : " + str(choix1))
+            print("Les portes restantes sont : " + str(porteRestanteVide))
+            print("La porte ouverte est : " + str(porteOuverte))
+
+    print("Le taux de reussite en changeant de porte est de " + str(pourcentChange) + "%")
+    print("Le taux de reussite en gardant la porte est de " + str(pourcentGarde) + "%")
+
+#montyHall()
+
+#########################################
+
+
+
+
+
