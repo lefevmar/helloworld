@@ -81,13 +81,12 @@ def palindromme(text):
     for i in range(0, l):
         if(text[i] == text[indexFin]):
             pal = True
+        else:
+            print("Le mot " + text + " n'est pas un palindromme")
+            return
         indexFin = indexFin - 1
     if(pal == True):
         print("Le mot " + text + " est un palindromme")
-    if (pal == False):
-        print("Le mot " + text + " n'est pas un palindromme")
 
-
-palindromme("anna")
-palindromme("bidule")
-palindromme("kayak")
+texte = raw_input("Test du mot : ")
+palindromme(texte)
